@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-import json
-import time
-
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
-import subprocess, os
+import subprocess, os, json, time, argparse
 from docx.shared import RGBColor
 from datetime import datetime
 from docx import Document
 
+outPath = "output"
 
+
+# 方法
 class Function:
     @classmethod
     def timer(cls) -> str:  # 时间
@@ -21,6 +21,9 @@ class Function:
         second = f'{now.second:02}'
         return f"{year}年{month}月{day}日{hour}时{minute}分{second}秒"
 
+
+# 文件输出
+class Docx:
     @classmethod
     def _row_tit(cls, doc, text: str):
         line = doc.add_paragraph()
@@ -35,7 +38,7 @@ class Function:
         # 标题
         heading = doc.add_heading('漏洞报告', 0)
         heading.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-        t = doc.add_paragraph('生成时间：' + cls.timer())
+        t = doc.add_paragraph('生成时间：' + Function.timer())
         t.alignment = WD_PARAGRAPH_ALIGNMENT.RIGHT
         cls._row_tit(doc, "漏洞名称").add_run(v['vName'])
         cls._row_tit(doc, "漏洞URL").add_run(_url)
@@ -89,20 +92,18 @@ class Function:
         table = doc.add_table(rows=1, cols=1)
         for row_index, row in enumerate(table.rows):
             for col_index, cell in enumerate(row.cells): cell.text = response['body']
-        doc.save(os.path.join("output", out_file, v['vName'].replace("/", '') + '.docx'))
+        doc.save(os.path.join(out_file, v['vName'].replace("/", '') + '.docx'))
         return v['vName'] + '.docx'
 
 
-def exploit(_poc, _url: str):
+# 漏洞检测方法
+def exploit(_poc, _url: str) -> dict:
     process = subprocess.Popen(
         [
-            r"C:\Users\b0bef\Documents\Golang\secScript\EXE\secScript.exe",
-            "-vul",
-            "api",
-            "-poc",
-            _poc,
-            "-vUrl",
-            _url
+            r"secScript.exe",
+            "-poc", _poc,
+            "-vUrl", _url,
+            "-api", "true"
         ],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -112,10 +113,75 @@ def exploit(_poc, _url: str):
     return json.loads(stdout)
 
 
-poc = r"C:\Users\b0bef\Documents\Golang\secScript\EXE\vul\OA\致远OA\致远OA A6 createMysql.jsp 数据库敏感信息泄露-1.yaml"
-url = "https://api.birdy02.com"
-# 调用 Go 程序
-res = exploit(poc, url)
-path = os.path.join("output",str(int(time.time())))
-if not os.path.exists(path): os.makedirs(path)
-Function.write_docx(res, url, str(int(time.time())))
+# icp查询
+def icp(keyword: str) -> dict:
+    process = subprocess.Popen(
+        [
+            r"secScript.exe",
+            "-icp", keyword,
+            "-api", "true"
+        ],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding='utf-8'  # 指定正确的编码
+    )
+    stdout, _ = process.communicate()
+    return json.loads(stdout)
+
+
+def ip(ipv4: str) -> dict:
+    process = subprocess.Popen(
+        [
+            r"secScript.exe",
+            "-ip", ipv4,
+            "-api", "true"
+        ],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding='utf-8'  # 指定正确的编码
+    )
+    stdout, _ = process.communicate()
+    return json.loads(stdout)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='secScript控制脚本')
+    parser.add_argument('-p', '--poc', help='poc文件')
+    parser.add_argument('-u', '--url', help='要检测的URL')
+    parser.add_argument('-ip', '--ipv4', help='要查询属地的ipv4地址')
+    parser.add_argument('-icp', '--icp', help='要查询ICP的单位名/域名/ICP号')
+    parser.add_argument('-uf', '--ufile', help='指定要批量检测的url文件')
+    args = parser.parse_args()
+
+    if args.poc:
+        path = os.path.join(outPath, str(int(time.time())))
+        if not os.path.isfile(args.poc): return print("文件不存在", args.poc)
+        if args.url:
+            if not args.url.startswith('http'): return print("URL错误", args.url)
+            if not os.path.exists(path): os.makedirs(path)
+            res = exploit(args.poc, args.url)
+            if res['isVul']: print("输出文件:", Docx.write_docx(res, args.url, path))
+
+        elif args.ufile:
+            if not os.path.isfile(args.ufile): return print("文件不存在", args.ufile)
+            with open(args.ufile, 'r', encoding='utf-8') as f:
+                urls = [i.strip() for i in f.read().split('\n') if i.strip() != "" and i.startswith('http')]
+            if not os.path.exists(path): os.makedirs(path)
+            for url in urls:
+                res = exploit(args.poc, url)
+                if res['isVul']: print("输出文件:", Docx.write_docx(res, url, path))
+
+    elif args.ipv4:
+        res = ip(args.ipv4)
+        print(res)
+
+    elif args.icp:
+        res = icp(args.icp)
+        print(res)
+
+
+if __name__ == "__main__":
+    main()
+
+# poc = r"C:\Users\b0bef\Documents\Golang\secScript\EXE\vul\OA\致远OA\致远OA A6 createMysql.jsp 数据库敏感信息泄露-1.yaml"
+# url = "https://api.birdy02.com"
