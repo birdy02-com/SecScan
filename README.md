@@ -15,6 +15,8 @@
 * 域名A记录
 * 开发中...
 
+详细文章：https://www.birdy02.com/secscript
+
 a如果您觉得 secScript 对您有所帮助，或者您喜欢我的项目，请在 GitHub 上给我们一个 ⭐️。您的支持是我们持续改进和增加新功能的动力！感谢您的支持
 
 # WeChat交流群
