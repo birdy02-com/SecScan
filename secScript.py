@@ -164,12 +164,13 @@ def dns(domain: str) -> dict:
     return json.loads(stdout)
 
 
-def analyze_url(uri: str) -> dict:
+def analyze_url(uri, cms: str) -> dict:
     process = subprocess.Popen(
         [
             r"secScript.exe",
             "-url", uri,
-            "-api", "true"
+            "-api", "true",
+            "-cms", "true" if cms else ""
         ],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -181,9 +182,10 @@ def analyze_url(uri: str) -> dict:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--poc', help='poc文件')
-    parser.add_argument('-u', '--url', help='配合漏洞检测时候（要检测的URL） | 站点分析时（要分析的url）')
-    parser.add_argument('-o', '--out', type=bool, default=False, help='是否输出文件：(True | False)')
+    parser.add_argument('-poc', '--poc', help='poc文件')
+    parser.add_argument('-url', '--url', help='配合漏洞检测时候（要检测的URL） | 站点分析时（要分析的url）')
+    parser.add_argument('-cms', '--cms', help='配合站点分析时使用，输入值不为空')
+    parser.add_argument('-out', '--out', type=bool, default=False, help='是否输出文件：(True | False)')
     parser.add_argument('-ip', '--ipv4', help='要查询属地的ipv4地址')
     parser.add_argument('-icp', '--icp', help='要查询ICP的单位名/域名/ICP号')
     parser.add_argument('-uf', '--ufile', help='指定要批量检测的url文件')
@@ -225,7 +227,7 @@ def main():
         res = dns(args.dns)
         print(res)
     elif args.url:
-        res = analyze_url(args.url)
+        res = analyze_url(args.url, args.cms)
         print(res)
 
 
