@@ -114,6 +114,7 @@ def exploit(_poc, _url: str) -> dict:
 
 
 # icp查询
+# 返回参考：https://apifox.com/apidoc/shared-76f1bd0e-6083-4251-91a2-e96c9bb3bce2/api-219597580
 def icp(keyword: str) -> dict:
     process = subprocess.Popen(
         [
@@ -129,6 +130,8 @@ def icp(keyword: str) -> dict:
     return json.loads(stdout)
 
 
+# ip属地查询
+# 返回参考：https://apifox.com/apidoc/shared-76f1bd0e-6083-4251-91a2-e96c9bb3bce2/api-217943200
 def ip(ipv4: str) -> dict:
     process = subprocess.Popen(
         [
@@ -144,13 +147,32 @@ def ip(ipv4: str) -> dict:
     return json.loads(stdout)
 
 
+# 获取域名的A记录
+# 返回参考：https://apifox.com/apidoc/shared-76f1bd0e-6083-4251-91a2-e96c9bb3bce2/api-219607563
+def dns(domain: str) -> dict:
+    process = subprocess.Popen(
+        [
+            r"secScript.exe",
+            "-ns", domain,
+            "-api", "true"
+        ],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding='utf-8'  # 指定正确的编码
+    )
+    stdout, _ = process.communicate()
+    return json.loads(stdout)
+
+
 def main():
-    parser = argparse.ArgumentParser(description='secScript控制脚本')
+    parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--poc', help='poc文件')
     parser.add_argument('-u', '--url', help='要检测的URL')
+    parser.add_argument('-o', '--out', type=bool, default=False, help='是否输出文件：(True | False)')
     parser.add_argument('-ip', '--ipv4', help='要查询属地的ipv4地址')
     parser.add_argument('-icp', '--icp', help='要查询ICP的单位名/域名/ICP号')
     parser.add_argument('-uf', '--ufile', help='指定要批量检测的url文件')
+    parser.add_argument('-ns', '--dns', help='要获取A记录的域名')
     args = parser.parse_args()
 
     if args.poc:
@@ -160,7 +182,11 @@ def main():
             if not args.url.startswith('http'): return print("URL错误", args.url)
             if not os.path.exists(path): os.makedirs(path)
             res = exploit(args.poc, args.url)
-            if res['isVul']: print("输出文件:", Docx.write_docx(res, args.url, path))
+            if args.out:
+                print(args.url, "存在漏洞" if res["isVul"] else "不存在漏洞", res["vName"])
+                if res['isVul']: print("输出文件:", Docx.write_docx(res, args.url, path))
+            else:
+                print(res)
 
         elif args.ufile:
             if not os.path.isfile(args.ufile): return print("文件不存在", args.ufile)
@@ -169,7 +195,8 @@ def main():
             if not os.path.exists(path): os.makedirs(path)
             for url in urls:
                 res = exploit(args.poc, url)
-                if res['isVul']: print("输出文件:", Docx.write_docx(res, url, path))
+                print(url, "存在漏洞" if res["isVul"] else "不存在漏洞", res["vName"])
+                if res['isVul']: print("输出文件:", Docx.write_docx(res, args.url, path))
 
     elif args.ipv4:
         res = ip(args.ipv4)
@@ -177,6 +204,10 @@ def main():
 
     elif args.icp:
         res = icp(args.icp)
+        print(res)
+
+    elif args.dns:
+        res = dns(args.dns)
         print(res)
 
 
