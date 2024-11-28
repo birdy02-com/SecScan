@@ -164,10 +164,25 @@ def dns(domain: str) -> dict:
     return json.loads(stdout)
 
 
+def analyze_url(uri: str) -> dict:
+    process = subprocess.Popen(
+        [
+            r"secScript.exe",
+            "-url", uri,
+            "-api", "true"
+        ],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding='utf-8'  # 指定正确的编码
+    )
+    stdout, _ = process.communicate()
+    return json.loads(stdout)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--poc', help='poc文件')
-    parser.add_argument('-u', '--url', help='要检测的URL')
+    parser.add_argument('-u', '--url', help='配合漏洞检测时候（要检测的URL） | 站点分析时（要分析的url）')
     parser.add_argument('-o', '--out', type=bool, default=False, help='是否输出文件：(True | False)')
     parser.add_argument('-ip', '--ipv4', help='要查询属地的ipv4地址')
     parser.add_argument('-icp', '--icp', help='要查询ICP的单位名/域名/ICP号')
@@ -208,6 +223,9 @@ def main():
 
     elif args.dns:
         res = dns(args.dns)
+        print(res)
+    elif args.url:
+        res = analyze_url(args.url)
         print(res)
 
 
