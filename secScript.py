@@ -183,7 +183,7 @@ def analyze_url(uri, cms: str) -> dict:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-poc', '--poc', help='poc文件')
-    parser.add_argument('-url', '--url', help='配合漏洞检测时候（要检测的URL） | 站点分析时（要分析的url）')
+    parser.add_argument('-u', '--url', help='配合漏洞检测时候（要检测的URL） | 站点分析时（要分析的url）')
     parser.add_argument('-cms', '--cms', help='配合站点分析时使用，输入值不为空')
     parser.add_argument('-out', '--out', type=bool, default=False, help='是否输出文件：(True | False)')
     parser.add_argument('-ip', '--ipv4', help='要查询属地的ipv4地址')
