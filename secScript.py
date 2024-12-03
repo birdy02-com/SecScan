@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
-import subprocess, os, json, time, argparse
+import subprocess, os, json, time, argparse, sys
+from urllib.parse import urlparse
 from docx.shared import RGBColor
 from datetime import datetime
 from docx import Document
 
 outPath = "output"
+
+
+def program_exit():
+    print("Program exited...")
+    sys.exit(0)
 
 
 # 方法
@@ -21,6 +27,15 @@ class Function:
         second = f'{now.second:02}'
         return f"{year}年{month}月{day}日{hour}时{minute}分{second}秒"
 
+    @classmethod
+    def fileGetUrl(cls, file) -> list:
+        try:
+            with open(file, "r", encoding='utf-8') as f:
+                return [i.strip() for i in f.read().split('\n') if i.strip() and i.startswith('http')]
+        except Exception as e:
+            print(e)
+            return []
+
 
 # 文件输出
 class Docx:
@@ -34,6 +49,7 @@ class Docx:
 
     @classmethod
     def write_docx(cls, v: dict, _url: str, out_file: str) -> str:
+        if not os.path.exists(out_file): os.makedirs(out_file)
         doc = Document()
         # 标题
         heading = doc.add_heading('漏洞报告', 0)
@@ -92,97 +108,148 @@ class Docx:
         table = doc.add_table(rows=1, cols=1)
         for row_index, row in enumerate(table.rows):
             for col_index, cell in enumerate(row.cells): cell.text = response['body']
-        doc.save(os.path.join(out_file, v['vName'].replace("/", '') + '.docx'))
+        doc.save(
+            os.path.join(out_file, urlparse(request['url']).hostname + "_" + v['vName'].replace("/", '') + '.docx'))
         return v['vName'] + '.docx'
 
 
 # 漏洞检测方法
-def exploit(_poc, _url: str) -> dict:
-    process = subprocess.Popen(
-        [
-            r"secScript.exe",
-            "-poc", _poc,
-            "-vUrl", _url,
-            "-api", "true"
-        ],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        encoding='utf-8'  # 指定正确的编码
-    )
-    stdout, _ = process.communicate()
-    return json.loads(stdout)
+def exploit(_poc, _url: str) -> dict | None:
+    try:
+        process = subprocess.Popen(
+            [
+                r"secScript.exe",
+                "-poc", _poc,
+                "-vUrl", _url,
+                "-api", "true"
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding='utf-8'  # 指定正确的编码
+        )
+        stdout, _ = process.communicate()
+        return json.loads(stdout)
+    except KeyboardInterrupt:
+        program_exit()
+    except:
+        return None
 
 
 # icp查询
 # 返回参考：https://apifox.com/apidoc/shared-76f1bd0e-6083-4251-91a2-e96c9bb3bce2/api-219597580
-def icp(keyword: str) -> dict:
-    process = subprocess.Popen(
-        [
-            r"secScript.exe",
-            "-icp", keyword,
-            "-api", "true"
-        ],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        encoding='utf-8'  # 指定正确的编码
-    )
-    stdout, _ = process.communicate()
-    return json.loads(stdout)
+def icp(keyword: str) -> dict | None:
+    try:
+        process = subprocess.Popen(
+            [
+                r"secScript.exe",
+                "-icp", keyword,
+                "-api", "true"
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding='utf-8'  # 指定正确的编码
+        )
+        stdout, _ = process.communicate()
+        return json.loads(stdout)
+    except KeyboardInterrupt:
+        program_exit()
+    except:
+        return None
 
 
 # ip属地查询
 # 返回参考：https://apifox.com/apidoc/shared-76f1bd0e-6083-4251-91a2-e96c9bb3bce2/api-217943200
-def ip(ipv4: str) -> dict:
-    process = subprocess.Popen(
-        [
-            r"secScript.exe",
-            "-ip", ipv4,
-            "-api", "true"
-        ],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        encoding='utf-8'  # 指定正确的编码
-    )
-    stdout, _ = process.communicate()
-    return json.loads(stdout)
+def ip(ipv4: str) -> dict | None:
+    try:
+        process = subprocess.Popen(
+            [
+                r"secScript.exe",
+                "-ip", ipv4,
+                "-api", "true"
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding='utf-8'  # 指定正确的编码
+        )
+        stdout, _ = process.communicate()
+        return json.loads(stdout)
+    except KeyboardInterrupt:
+        program_exit()
+    except:
+        return None
 
 
 # 获取域名的A记录
 # 返回参考：https://apifox.com/apidoc/shared-76f1bd0e-6083-4251-91a2-e96c9bb3bce2/api-219607563
-def dns(domain: str) -> dict:
-    process = subprocess.Popen(
-        [
-            r"secScript.exe",
-            "-ns", domain,
-            "-api", "true"
-        ],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        encoding='utf-8'  # 指定正确的编码
-    )
-    stdout, _ = process.communicate()
-    return json.loads(stdout)
+def dns(domain: str) -> dict | None:
+    try:
+        process = subprocess.Popen(
+            [
+                r"secScript.exe",
+                "-ns", domain,
+                "-api", "true"
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding='utf-8'  # 指定正确的编码
+        )
+        stdout, _ = process.communicate()
+        return json.loads(stdout)
+    except KeyboardInterrupt:
+        program_exit()
+    except:
+        return None
 
 
-def analyze_url(uri, cms: str) -> dict:
-    process = subprocess.Popen(
-        [
-            r"secScript.exe",
-            "-url", uri,
-            "-api", "true",
-            "-cms", "true" if cms else ""
-        ],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        encoding='utf-8'  # 指定正确的编码
-    )
-    stdout, _ = process.communicate()
-    return json.loads(stdout)
+# 分析URL信息
+def analyze_url(uri, cms: str) -> dict | None:
+    try:
+        process = subprocess.Popen(
+            [
+                r"secScript.exe",
+                "-url", uri,
+                "-api", "true",
+                "-cms", "true" if cms else ""
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding='utf-8'  # 指定正确的编码
+        )
+        stdout, _ = process.communicate()
+        return json.loads(stdout)
+    except KeyboardInterrupt:
+        program_exit()
+    except:
+        return None
+
+
+# 获取POC基本信息
+# json 返回本地poc的json概述
+# list 返回产品的poc列表
+def poc_info(typer: str) -> dict | None:
+    try:
+        if typer not in ['json', 'list']: return {}
+        process = subprocess.Popen(
+            [
+                r"secScript.exe",
+                "-pocs", typer,
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding='utf-8'  # 指定正确的编码
+        )
+        stdout, _ = process.communicate()
+        return json.loads(stdout)
+    except KeyboardInterrupt:
+        program_exit()
+    except:
+        return None
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-poc', '--poc', help='poc文件')
+    parser.add_argument('-pocs', '--pocs', help='本地poc的基本信息，可选值：json、list')
     parser.add_argument('-u', '--url', help='配合漏洞检测时候（要检测的URL） | 站点分析时（要分析的url）')
     parser.add_argument('-cms', '--cms', help='配合站点分析时使用，输入值不为空')
     parser.add_argument('-out', '--out', type=bool, default=False, help='是否输出文件：(True | False)')
@@ -197,7 +264,6 @@ def main():
         if not os.path.isfile(args.poc): return print("文件不存在", args.poc)
         if args.url:
             if not args.url.startswith('http'): return print("URL错误", args.url)
-            if not os.path.exists(path): os.makedirs(path)
             res = exploit(args.poc, args.url)
             if args.out:
                 print(args.url, "存在漏洞" if res["isVul"] else "不存在漏洞", res["vName"])
@@ -209,7 +275,6 @@ def main():
             if not os.path.isfile(args.ufile): return print("文件不存在", args.ufile)
             with open(args.ufile, 'r', encoding='utf-8') as f:
                 urls = [i.strip() for i in f.read().split('\n') if i.strip() != "" and i.startswith('http')]
-            if not os.path.exists(path): os.makedirs(path)
             for url in urls:
                 res = exploit(args.poc, url)
                 print(url, "存在漏洞" if res["isVul"] else "不存在漏洞", res["vName"])
@@ -229,6 +294,12 @@ def main():
     elif args.url:
         res = analyze_url(args.url, args.cms)
         print(res)
+        print(res["CMS"])
+    elif args.pocs:
+        res = poc_info(args.pocs)
+        # print(res)
+        for i in res:
+            print(i)
 
 
 if __name__ == "__main__":
