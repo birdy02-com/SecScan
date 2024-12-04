@@ -186,7 +186,7 @@ def dns(domain: str) -> dict | None:
         process = subprocess.Popen(
             [
                 r"secScript.exe",
-                "-ns", domain,
+                "-dns", domain,
                 "-api", "true"
             ],
             stdout=subprocess.PIPE,
@@ -233,6 +233,7 @@ def poc_info(typer: str) -> dict | None:
             [
                 r"secScript.exe",
                 "-pocs", typer,
+                "-api", "true",
             ],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
