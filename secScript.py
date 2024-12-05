@@ -36,6 +36,15 @@ class Function:
             print(e)
             return []
 
+    @classmethod
+    def fileGetLine(cls, file) -> list:
+        try:
+            with open(file, "r", encoding='utf-8') as f:
+                return [i.strip() for i in f.read().split('\n') if i.strip()]
+        except Exception as e:
+            print(e)
+            return []
+
 
 # 文件输出
 class Docx:
@@ -256,7 +265,7 @@ def main():
     parser.add_argument('-out', '--out', type=bool, default=False, help='是否输出文件：(True | False)')
     parser.add_argument('-ip', '--ipv4', help='要查询属地的ipv4地址')
     parser.add_argument('-icp', '--icp', help='要查询ICP的单位名/域名/ICP号')
-    parser.add_argument('-uf', '--ufile', help='指定要批量检测的url文件')
+    parser.add_argument('-uf', '--ufile', help='指定要批量检测的url文件，配合-poc使用')
     parser.add_argument('-ns', '--dns', help='要获取A记录的域名')
     args = parser.parse_args()
 
