@@ -20,4 +20,5 @@
 a如果您觉得 secScript 对您有所帮助，或者您喜欢我的项目，请在 GitHub 上给我们一个 ⭐️。您的支持是我们持续改进和增加新功能的动力！感谢您的支持
 
 # WeChat交流群
-![image](https://github.com/user-attachments/assets/a3ad9380-bdd9-4b31-ad77-8cdfa49e7db0)
+![60eb79eb3588afcd3cf784ce89b6128](https://github.com/user-attachments/assets/30acc1fc-9b6d-4690-bf26-c65707189f77)
+
