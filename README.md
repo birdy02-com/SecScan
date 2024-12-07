@@ -1,6 +1,7 @@
 # secScript
 
 详细文章：[https://www.birdy02.com/secscript](https://www.birdy02.com/secscript)
+
 Docs：[https://www.birdy02.com/secscript](https://www.birdy02.com/docs/secScript)
 
 * secScript 具有单个漏洞检测和多个目标/漏洞检测的功能，主程序是由Goland开发的，支持Python+Golang的配合驱动，Go版程序开放了API接口，支持通过json形式返回结果，有了更多的可自定义空间。
