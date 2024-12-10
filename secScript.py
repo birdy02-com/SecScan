@@ -69,10 +69,12 @@ class DNS:
         '185.228.169.168', '202.79.32.33', '202.79.32.34'])
 
     @classmethod
-    def main(cls, dom) -> dict:
+    def main(cls, dom) -> dict | None:
         data = asyncio.run(cls.async_run(dom))
-        res = {"domain": data.get("name"), "ip": data.get("ipv4")[0], "dnsServer": "", "timer": Function.timer()}
-        return res
+        try:
+            return {"domain": data.get("name"), "ip": data.get("ipv4")[0], "dnsServer": "", "timer": Function.timer()}
+        except:
+            return None
 
     @classmethod
     async def async_run(cls, domain: str) -> dict:
@@ -159,7 +161,7 @@ class Function:
 
 # 输出日志
 def log(model: str = "", text: str = "", end: bool = False):
-    out_text = f"\r[+] {model}  {Fore.RESET + text}" + Fore.RESET
+    out_text = f"\r[ {model} ] {Fore.RESET + text}" + Fore.RESET
     if end:
         print(end=Fore.GREEN + out_text)
     else:
@@ -237,9 +239,9 @@ class Docx:
         table = doc.add_table(rows=1, cols=1)
         for row_index, row in enumerate(table.rows):
             for col_index, cell in enumerate(row.cells): cell.text = response['body']
-        doc.save(
-            os.path.join(out_file, urlparse(request['url']).hostname + "_" + v['vName'].replace("/", '') + '.docx'))
-        return v['vName'] + '.docx'
+        f_name = urlparse(request['url']).hostname + "_" + v['vName'].replace("/", '') + '.docx'
+        doc.save(os.path.join(out_file, f_name))
+        return f_name
 
 
 # 漏洞检测方法
@@ -331,14 +333,14 @@ def dns(domain: str) -> dict | None:
 
 
 # 分析URL信息
-def analyze_url(uri, cms: str) -> dict | None:
+def analyze_url(uri: str, cms: bool = False) -> dict | None:
     try:
         process = subprocess.Popen(
             [
                 "secScript.exe",
                 "-url", uri,
-                "-api", "true",
-                "-cms", "true" if cms else ""
+                "-cms", "true" if cms else "",
+                "-api", "true"
             ],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -424,12 +426,11 @@ def main():
     elif args.url:
         res = analyze_url(args.url, args.cms)
         print(res)
-        print(res["CMS"])
     elif args.pocs:
         res = poc_info(args.pocs)
-        # print(res)
-        for i in res:
-            print(i)
+        print(res)
+        # for i in res:
+        #     print(i)
 
 
 if __name__ == "__main__":
