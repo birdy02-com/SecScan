@@ -300,6 +300,7 @@ def ip(ipv4: str) -> dict | None:
 # 获取域名的A记录
 # 返回参考：https://apifox.com/apidoc/shared-76f1bd0e-6083-4251-91a2-e96c9bb3bce2/api-219607563
 def dns(domain: str) -> dict | None:
+    if domain.startswith("http"): domain = urlparse(domain).hostname
     try:
         process = subprocess.Popen(
             ["secScript.exe", "-api", "-dns", domain],
