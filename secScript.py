@@ -248,12 +248,7 @@ class Docx:
 def exploit(_poc, _url: str) -> dict | None:
     try:
         process = subprocess.Popen(
-            [
-                "secScript.exe",
-                "-poc", _poc,
-                "-vUrl", _url,
-                "-api", "true"
-            ],
+            ["secScript.exe", "-api", "-poc", _poc, "-vUrl", _url],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding='utf-8'  # 指定正确的编码
@@ -271,11 +266,7 @@ def exploit(_poc, _url: str) -> dict | None:
 def icp(keyword: str) -> dict | None:
     try:
         process = subprocess.Popen(
-            [
-                "secScript.exe",
-                "-icp", keyword,
-                "-api", "true"
-            ],
+            ["secScript.exe", "-api", "-icp", keyword],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding='utf-8'  # 指定正确的编码
@@ -293,11 +284,7 @@ def icp(keyword: str) -> dict | None:
 def ip(ipv4: str) -> dict | None:
     try:
         process = subprocess.Popen(
-            [
-                "secScript.exe",
-                "-ip", ipv4,
-                "-api", "true"
-            ],
+            ["secScript.exe", "-api", "-ip", ipv4],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding='utf-8'  # 指定正确的编码
@@ -315,11 +302,7 @@ def ip(ipv4: str) -> dict | None:
 def dns(domain: str) -> dict | None:
     try:
         process = subprocess.Popen(
-            [
-                "secScript.exe",
-                "-dns", domain,
-                "-api", "true"
-            ],
+            ["secScript.exe", "-api", "-dns", domain],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding='utf-8'  # 指定正确的编码
@@ -336,12 +319,7 @@ def dns(domain: str) -> dict | None:
 def analyze_url(uri: str, cms: bool = False) -> dict | None:
     try:
         process = subprocess.Popen(
-            [
-                "secScript.exe",
-                "-url", uri,
-                "-cms", "true" if cms else "",
-                "-api", "true"
-            ],
+            ["secScript.exe", "-api", "-url", uri, "-cms" if cms else ""],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding='utf-8'  # 指定正确的编码
@@ -350,7 +328,7 @@ def analyze_url(uri: str, cms: bool = False) -> dict | None:
         return json.loads(stdout)
     except KeyboardInterrupt:
         program_exit()
-    except:
+    except Exception as err:
         return None
 
 
@@ -361,11 +339,7 @@ def poc_info(typer: str) -> dict | None:
     try:
         if typer not in ['json', 'list']: return {}
         process = subprocess.Popen(
-            [
-                "secScript.exe",
-                "-pocs", typer,
-                "-api", "true",
-            ],
+            ["secScript.exe", "-api", "-pocs", typer],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding='utf-8'  # 指定正确的编码
