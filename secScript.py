@@ -330,6 +330,7 @@ def analyze_url(uri: str, cms: bool = False) -> dict | None:
     except KeyboardInterrupt:
         program_exit()
     except Exception as err:
+        print(err)
         return None
 
 
