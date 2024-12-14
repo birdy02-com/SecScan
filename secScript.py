@@ -248,7 +248,7 @@ class Docx:
 def exploit(_poc, _url: str) -> dict | None:
     try:
         process = subprocess.Popen(
-            ["secScript.exe", "-api", "-poc", _poc, "-vUrl", _url],
+            ["secScript.exe", "-api", "-poc", _poc, "-url", _url],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding='utf-8'  # 指定正确的编码
@@ -341,7 +341,7 @@ def poc_info(typer: str) -> dict | None:
     try:
         if typer not in ['json', 'list']: return {}
         process = subprocess.Popen(
-            ["secScript.exe", "-api", "-pocs", typer],
+            ["secScript.exe", "-api", "-poc", typer],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding='utf-8'  # 指定正确的编码
