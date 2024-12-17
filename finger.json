@@ -1,5 +1,4 @@
 [
-
   {
     "cms": "AspCMS",
     "method": "keyword",
@@ -127,6 +126,55 @@
     ]
   },
   {
+    "cms": "Django",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "__admin_media_prefix__",
+      "csrfmiddlewaretoken"
+    ]
+  },
+  {
+    "cms": "django",
+    "method": "keyword",
+    "location": "header",
+    "keyword": [
+      "django CMS"
+    ]
+  },
+  {
+    "cms": "django",
+    "method": "keyword",
+    "location": "title",
+    "keyword": [
+      "django CMS"
+    ]
+  },
+  {
+    "cms": "Django",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "<input type=\"hidden\" name=\"this_is_the_login_form\" value=\"1\" />"
+    ]
+  },
+  {
+    "cms": "Django",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "csrfmiddlewaretoken"
+    ]
+  },
+  {
+    "cms": "Django",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "__admin_media_prefix__"
+    ]
+  },
+  {
     "cms": "Joomla",
     "method": "keyword",
     "location": "body",
@@ -191,6 +239,46 @@
     "location": "body",
     "keyword": [
       "-1950415971"
+    ]
+  },
+  {
+    "cms": "SeaCMS(海洋CMS)",
+    "method": "keyword",
+    "location": "header",
+    "keyword": [
+      "seacms"
+    ]
+  },
+  {
+    "cms": "SeaCMS(海洋CMS)",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "seacms"
+    ]
+  },
+  {
+    "cms": "SeaCMS(海洋CMS)",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "Powered by SeaCms"
+    ]
+  },
+  {
+    "cms": "SeaCMS(海洋CMS)",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"seacms"
+    ]
+  },
+  {
+    "cms": "SeaCMS(海洋CMS)",
+    "method": "keyword",
+    "location": "title",
+    "keyword": [
+      "seacms"
     ]
   },
   {
@@ -549,6 +637,175 @@
     "keyword": [
       "/upload/1/appLogo",
       "/mcms/search.do"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "74cms",
+      "qscms.root",
+      "index.php"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"74cms.com"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"骑士CMS"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "Powered by <a href=\"http://www.74cms.com/\""
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"74cms.com\""
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"74cms.com",
+      "content=\"骑士cms",
+      "powered by <a href=\"http://www.74cms.com/\"",
+      "/templates/default/css/common.css",
+      "selectjobscategory"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "74cms",
+      "qscms.root",
+      "index.php"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "title",
+    "keyword": [
+      "骑士人才系统"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "骑士人才系统"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"74cms.com"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"骑士CMS"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "Powered by <a href=\"http://www.74cms.com/\""
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"骑士cms"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "header",
+    "keyword": [
+      "QSCMS"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "header",
+    "keyword": [
+      "骑士人才系统"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "/templates/default/css/common.css"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "selectjobscategory"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "selectjobscategory",
+      "/templates/default/css/common.css"
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "powered by <a href=\"http://www.74cms.com/\""
+    ]
+  },
+  {
+    "cms": "骑士74CMS",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"74cms.com"
     ]
   },
   {
@@ -2262,6 +2519,14 @@
     ]
   },
   {
+    "cms": "用友UFIDA-NC",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "logo/images/ufida_nc.png"
+    ]
+  },
+  {
     "cms": "用友分析云",
     "method": "keyword",
     "location": "header",
@@ -3180,6 +3445,30 @@
     ]
   },
   {
+    "cms": "Zeroshell防火墙",
+    "method": "keyword",
+    "location": "title",
+    "keyword": [
+      "zeroshell"
+    ]
+  },
+  {
+    "cms": "Zeroshell防火墙",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "<title>ZeroShell</title>"
+    ]
+  },
+  {
+    "cms": "中科网威-防火墙",
+    "method": "faviconhash",
+    "location": "body",
+    "keyword": [
+      "-1443918069"
+    ]
+  },
+  {
     "cms": "安恒信息明御安全网关",
     "method": "keyword",
     "location": "title",
@@ -3779,12 +4068,77 @@
     ]
   },
   {
-    "cms": "普元EOS-Platform",
+    "cms": "Vmware-vCenter",
+    "method": "keyword",
+    "location": "title",
+    "keyword": [
+      "id_converter_welcome"
+    ]
+  },
+  {
+    "cms": "Vmware-vCenter",
     "method": "keyword",
     "location": "body",
     "keyword": [
-      "ame.primeton.com",
-      "eos-web"
+      "/vmw_nsx_logo-black-triangle-500w.png"
+    ]
+  },
+  {
+    "cms": "Vmware-vCenter",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"vmware vcenter"
+    ]
+  },
+  {
+    "cms": "Vmware-vCenter",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "/converter/vmware-converter-client.exe"
+    ]
+  },
+  {
+    "cms": "Vmware-vCenter",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "/converter/vmware-converter-client.exe",
+      "content=\"vmware vcenter",
+      "/vmw_nsx_logo-black-triangle-500w.png"
+    ]
+  },
+  {
+    "cms": "Vmware-vCenter",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "content=\"VMware vCenter Converter Standalone\""
+    ]
+  },
+  {
+    "cms": "Vmware-Cloud",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "<title>VMware Cloud Director</title>"
+    ]
+  },
+  {
+    "cms": "Vmware-Cloud",
+    "method": "faviconhash",
+    "location": "body",
+    "keyword": [
+      "179502801"
+    ]
+  },
+  {
+    "cms": "Vmware-Cloud",
+    "method": "faviconhash",
+    "location": "body",
+    "keyword": [
+      "1410131951"
     ]
   },
   {
@@ -3845,6 +4199,15 @@
     "keyword": [
       "N-soft",
       "ClientDownload.xgi"
+    ]
+  },
+  {
+    "cms": "普元EOS-Platform",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "ame.primeton.com",
+      "eos-web"
     ]
   },
   {
@@ -5918,14 +6281,6 @@
     "location": "header",
     "keyword": [
       "PbootCMS"
-    ]
-  },
-  {
-    "cms": "Swagger UI",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "Swagger UI"
     ]
   },
   {
@@ -10109,16 +10464,6 @@
     ]
   },
   {
-    "cms": "骑士 74CMS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "74cms",
-      "qscms.root",
-      "index.php"
-    ]
-  },
-  {
     "cms": "Apache2 Debian 默认页",
     "method": "keyword",
     "location": "body",
@@ -12767,14 +13112,6 @@
     ]
   },
   {
-    "cms": "3Com-NJ2000",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"3com intellijack nj2000\""
-    ]
-  },
-  {
     "cms": "3CX-Phone-System-Management-Console",
     "method": "keyword",
     "location": "body",
@@ -12865,18 +13202,6 @@
     "keyword": [
       "powered by 6kbbs",
       "generator\" content=\"6kbbs"
-    ]
-  },
-  {
-    "cms": "74CMS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"74cms.com",
-      "content=\"骑士cms",
-      "powered by <a href=\"http://www.74cms.com/\"",
-      "/templates/default/css/common.css",
-      "selectjobscategory"
     ]
   },
   {
@@ -20939,15 +21264,7 @@
       "src=\"/dyweb/dythemes"
     ]
   },
-  {
-    "cms": "Django",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "__admin_media_prefix__",
-      "csrfmiddlewaretoken"
-    ]
-  },
+
   {
     "cms": "DLI-LPC",
     "method": "keyword",
@@ -40847,23 +41164,6 @@
     ]
   },
   {
-    "cms": "Swagger",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "<div id=\"swagger-ui\"></div>"
-    ]
-  },
-  {
-    "cms": "Swagger",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "swagger-ui.css",
-      "swagger-ui.js"
-    ]
-  },
-  {
     "cms": "Sweetrice",
     "method": "keyword",
     "location": "body",
@@ -44359,16 +44659,6 @@
     "location": "body",
     "keyword": [
       "content=\"vmware server is virtual"
-    ]
-  },
-  {
-    "cms": "VMware-vCenter",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "/converter/vmware-converter-client.exe",
-      "content=\"vmware vcenter",
-      "/vmw_nsx_logo-black-triangle-500w.png"
     ]
   },
   {
@@ -48898,14 +49188,6 @@
     ]
   },
   {
-    "cms": "UFIDA_NC",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "logo/images/ufida_nc.png"
-    ]
-  },
-  {
     "cms": "北创图书检索系统",
     "method": "keyword",
     "location": "body",
@@ -52224,30 +52506,6 @@
     "location": "body",
     "keyword": [
       "Powered by ESPCMS"
-    ]
-  },
-  {
-    "cms": "74cms",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"74cms.com"
-    ]
-  },
-  {
-    "cms": "74cms",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"骑士CMS"
-    ]
-  },
-  {
-    "cms": "74cms",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "Powered by <a href=\"http://www.74cms.com/\""
     ]
   },
   {
@@ -57211,38 +57469,6 @@
     ]
   },
   {
-    "cms": "骑士人才系统(74cms)",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "骑士人才系统"
-    ]
-  },
-  {
-    "cms": "骑士人才系统(74cms)",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"74cms.com"
-    ]
-  },
-  {
-    "cms": "骑士人才系统(74cms)",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"骑士CMS"
-    ]
-  },
-  {
-    "cms": "骑士人才系统(74cms)",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "Powered by <a href=\"http://www.74cms.com/\""
-    ]
-  },
-  {
     "cms": "FeiFeiCMS",
     "method": "keyword",
     "location": "body",
@@ -57648,30 +57874,6 @@
     "location": "body",
     "keyword": [
       "Power by DocCms"
-    ]
-  },
-  {
-    "cms": "seacms(海洋CMS)",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "seacms"
-    ]
-  },
-  {
-    "cms": "seacms(海洋CMS)",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "Powered by SeaCms"
-    ]
-  },
-  {
-    "cms": "seacms(海洋CMS)",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"seacms"
     ]
   },
   {
@@ -69515,14 +69717,6 @@
     ]
   },
   {
-    "cms": "骑士人才系统(74cms)",
-    "method": "keyword",
-    "location": "header",
-    "keyword": [
-      "骑士人才系统"
-    ]
-  },
-  {
     "cms": "thttpd",
     "method": "keyword",
     "location": "header",
@@ -76099,14 +76293,6 @@
     ]
   },
   {
-    "cms": "django CMS",
-    "method": "keyword",
-    "location": "header",
-    "keyword": [
-      "django CMS"
-    ]
-  },
-  {
     "cms": "SiteEdit",
     "method": "keyword",
     "location": "header",
@@ -81331,14 +81517,6 @@
     ]
   },
   {
-    "cms": "Zeroshell防火墙",
-    "method": "keyword",
-    "location": "header",
-    "keyword": [
-      "zeroshell"
-    ]
-  },
-  {
     "cms": "太一星晨T-Force NGFW",
     "method": "keyword",
     "location": "header",
@@ -84920,14 +85098,6 @@
     "location": "header",
     "keyword": [
       "Jobsite CMS"
-    ]
-  },
-  {
-    "cms": "seacms(海洋CMS)",
-    "method": "keyword",
-    "location": "header",
-    "keyword": [
-      "seacms"
     ]
   },
   {
@@ -89411,14 +89581,6 @@
     ]
   },
   {
-    "cms": "骑士 74CMS",
-    "method": "keyword",
-    "location": "header",
-    "keyword": [
-      "QSCMS"
-    ]
-  },
-  {
     "cms": "禅道 zentao",
     "method": "keyword",
     "location": "body",
@@ -89835,14 +89997,6 @@
     ]
   },
   {
-    "cms": "SwaggerUI",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "Swagger UI"
-    ]
-  },
-  {
     "cms": "HuaweiSMC",
     "method": "keyword",
     "location": "body",
@@ -89977,16 +90131,6 @@
     "keyword": [
       "Powered by phpshe",
       "include/js/global.js"
-    ]
-  },
-  {
-    "cms": "骑士74CMS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "74cms",
-      "qscms.root",
-      "index.php"
     ]
   },
   {
@@ -90282,16 +90426,6 @@
     "location": "body",
     "keyword": [
       "<title>Oracle WebLogic Server 管理控制台</title>"
-    ]
-  },
-  {
-    "cms": "SwaggerUI",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "/swagger-ui.css",
-      "swagger-ui-bundle.js",
-      "swagger-ui-standalone-preset.js"
     ]
   },
   {
@@ -90924,39 +91058,6 @@
     "location": "body",
     "keyword": [
       "powered by espcms"
-    ]
-  },
-  {
-    "cms": "74CMS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "selectjobscategory",
-      "/templates/default/css/common.css"
-    ]
-  },
-  {
-    "cms": "74CMS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "powered by <a href=\"http://www.74cms.com/\""
-    ]
-  },
-  {
-    "cms": "74CMS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"骑士cms"
-    ]
-  },
-  {
-    "cms": "74CMS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"74cms.com"
     ]
   },
   {
@@ -92059,22 +92160,6 @@
     "location": "body",
     "keyword": [
       "href=\"http://www.subrion.com"
-    ]
-  },
-  {
-    "cms": "Django",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "csrfmiddlewaretoken"
-    ]
-  },
-  {
-    "cms": "Django",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "__admin_media_prefix__"
     ]
   },
   {
@@ -101482,30 +101567,6 @@
     ]
   },
   {
-    "cms": "VMware-vCenter",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "/vmw_nsx_logo-black-triangle-500w.png"
-    ]
-  },
-  {
-    "cms": "VMware-vCenter",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"vmware vcenter"
-    ]
-  },
-  {
-    "cms": "VMware-vCenter",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "/converter/vmware-converter-client.exe"
-    ]
-  },
-  {
     "cms": "ChinaMDM-Mobile-Device-Management",
     "method": "keyword",
     "location": "body",
@@ -106620,22 +106681,6 @@
     ]
   },
   {
-    "cms": "Swagger",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "swagger-ui.js"
-    ]
-  },
-  {
-    "cms": "Swagger",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "swagger-ui.css"
-    ]
-  },
-  {
     "cms": "WSTMart",
     "method": "keyword",
     "location": "body",
@@ -110255,22 +110300,6 @@
     "location": "body",
     "keyword": [
       "astrocontacts"
-    ]
-  },
-  {
-    "cms": "74CMS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "/templates/default/css/common.css"
-    ]
-  },
-  {
-    "cms": "74CMS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "selectjobscategory"
     ]
   },
   {
@@ -117575,14 +117604,6 @@
     "location": "body",
     "keyword": [
       "usbkey_plugin.cab"
-    ]
-  },
-  {
-    "cms": "Secworld-SecIPS",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "无服务权限"
     ]
   },
   {
@@ -126159,14 +126180,6 @@
     "location": "body",
     "keyword": [
       "<meta name=\"generator\" content=\"bitweaver - http://www.bitweaver.org\" />"
-    ]
-  },
-  {
-    "cms": "Django",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "<input type=\"hidden\" name=\"this_is_the_login_form\" value=\"1\" />"
     ]
   },
   {
@@ -140854,14 +140867,6 @@
     ]
   },
   {
-    "cms": "74cms",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"74cms.com\""
-    ]
-  },
-  {
     "cms": "78oa",
     "method": "keyword",
     "location": "body",
@@ -143311,14 +143316,6 @@
     "keyword": [
       "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf8\">",
       "body"
-    ]
-  },
-  {
-    "cms": "vmware-vcenter-converter",
-    "method": "keyword",
-    "location": "body",
-    "keyword": [
-      "content=\"VMware vCenter Converter Standalone\""
     ]
   },
   {
@@ -153039,14 +153036,6 @@
     ]
   },
   {
-    "cms": "骑士人才系统(74cms)",
-    "method": "keyword",
-    "location": "title",
-    "keyword": [
-      "骑士人才系统"
-    ]
-  },
-  {
     "cms": "thttpd",
     "method": "keyword",
     "location": "title",
@@ -159999,14 +159988,6 @@
     ]
   },
   {
-    "cms": "djangoCMS",
-    "method": "keyword",
-    "location": "title",
-    "keyword": [
-      "django CMS"
-    ]
-  },
-  {
     "cms": "SiteEdit",
     "method": "keyword",
     "location": "title",
@@ -165335,14 +165316,6 @@
     ]
   },
   {
-    "cms": "Zeroshell防火墙",
-    "method": "keyword",
-    "location": "title",
-    "keyword": [
-      "zeroshell"
-    ]
-  },
-  {
     "cms": "太一星晨T-ForceNGFW",
     "method": "keyword",
     "location": "title",
@@ -168948,14 +168921,6 @@
     "location": "title",
     "keyword": [
       "Jobsite CMS"
-    ]
-  },
-  {
-    "cms": "seacms(海洋CMS)",
-    "method": "keyword",
-    "location": "title",
-    "keyword": [
-      "seacms"
     ]
   },
   {
@@ -191417,14 +191382,6 @@
     ]
   },
   {
-    "cms": "VMware-vCenter",
-    "method": "keyword",
-    "location": "title",
-    "keyword": [
-      "id_converter_welcome"
-    ]
-  },
-  {
     "cms": "Yxlink-Scanner",
     "method": "keyword",
     "location": "title",
@@ -195300,11 +195257,70 @@
     ]
   },
   {
-    "cms": "Swagger",
+    "cms": "SwaggerUI",
     "method": "keyword",
     "location": "title",
     "keyword": [
       "swagger ui"
+    ]
+  },
+  {
+    "cms": "SwaggerUI",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "swagger-ui.js"
+    ]
+  },
+  {
+    "cms": "SwaggerUI",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "swagger-ui.css"
+    ]
+  },
+  {
+    "cms": "SwaggerUI",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "/swagger-ui.css",
+      "swagger-ui-bundle.js",
+      "swagger-ui-standalone-preset.js"
+    ]
+  },
+  {
+    "cms": "SwaggerUI",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "Swagger UI"
+    ]
+  },
+  {
+    "cms": "SwaggerUI",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "Swagger UI"
+    ]
+  },
+  {
+    "cms": "SwaggerUI",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "<div id=\"swagger-ui\"></div>"
+    ]
+  },
+  {
+    "cms": "SwaggerUI",
+    "method": "keyword",
+    "location": "body",
+    "keyword": [
+      "swagger-ui.css",
+      "swagger-ui.js"
     ]
   },
   {
