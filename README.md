@@ -8,7 +8,7 @@
 
 ### 1. 强大的漏洞检测能力
 
-支持批量漏洞检测，多任务并发检测，自动生成检测报告，并以 Excel 格式记录检测结果，便于后续分析与管理。工具目前支持三种检测方法：
+支持自动漏洞检测、批量漏洞检测，多任务并发检测，多样化的漏洞检测方法帮助你快速发现资产的脆弱点，自动生成检测报告，并以 Excel 格式记录检测结果，便于后续分析与管理。工具目前支持三种检测方法：
 
 - **自动检测**：指定一个url或包含url的文件，识别CMS并自动调用poc进行漏洞检测。
 - **全部检测**：不识别CMS，调用poc进行全量漏洞检测。
@@ -44,6 +44,7 @@
 如果您觉得 `SecScan` 项目对您有所帮助，或者您喜欢我的项目，请在 [GitHub](https://github.com/birdy02-com/SecScan) 上给我一个 ⭐️。您的支持是我持续改进和增加新功能的动力！感谢您的支持！
 
 # WeChat交流群
-![c2cc3ea794c84a337085f74f120866b](https://github.com/user-attachments/assets/fc7d3e20-568f-46e7-82a5-1adab55ed5d6)
+![dcc95a30eae958ab3610b01b145fdb6](https://github.com/user-attachments/assets/b9c8a7bd-5fcf-4a14-8b0c-b03038eed80a)
+
 
 
