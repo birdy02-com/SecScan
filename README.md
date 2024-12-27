@@ -67,4 +67,5 @@
 如果您觉得 `SecScan` 项目对您有所帮助，或者您喜欢我的项目，请在 [GitHub](https://github.com/birdy02-com/SecScan) 上给我一个 ⭐️。您的支持是我持续改进和增加新功能的动力！感谢您的支持！
 
 # WeChat交流群
-![dcc95a30eae958ab3610b01b145fdb6](https://github.com/user-attachments/assets/b9c8a7bd-5fcf-4a14-8b0c-b03038eed80a)
+![7bdc95725ba74f24696afd935a0c14a](https://github.com/user-attachments/assets/45e0f040-917e-4768-b2ee-d3120ba4288a)
+
